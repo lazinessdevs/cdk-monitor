@@ -9,3 +9,13 @@ test('Snapshot', () => {
   const template = Template.fromStack(stack);
   expect(template.toJSON()).toMatchSnapshot();
 });
+
+test('topic name', () => {
+  const app = new App();
+  const stack = new MyStack(app, 'test');
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties('AWS::SNS::Topic', {
+    TopicName: 'cdk-monitor',
+  });
+});

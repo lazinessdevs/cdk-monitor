@@ -1,11 +1,14 @@
 import { App, Stack, StackProps } from 'aws-cdk-lib';
+import { Topic } from 'aws-cdk-lib/aws-sns';
 import { Construct } from 'constructs';
 
 export class MyStack extends Stack {
   constructor(scope: Construct, id: string, props: StackProps = {}) {
     super(scope, id, props);
 
-    // define resources here...
+    new Topic(this, 'CDKMonitorTopic', {
+      topicName: 'cdk-monitor',
+    });
   }
 }
 
