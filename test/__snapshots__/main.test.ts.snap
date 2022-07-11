@@ -2,6 +2,16 @@
 
 exports[`Snapshot 1`] = `
 Object {
+  "Outputs": Object {
+    "TopicArn": Object {
+      "Export": Object {
+        "Name": "cdk-monitor-topic",
+      },
+      "Value": Object {
+        "Ref": "CDKMonitorTopic152F2EBD",
+      },
+    },
+  },
   "Parameters": Object {
     "BootstrapVersion": Object {
       "Default": "/cdk-bootstrap/hnb659fds/version",
