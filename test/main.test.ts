@@ -19,3 +19,13 @@ test('topic name', () => {
     TopicName: 'cdk-monitor',
   });
 });
+
+test('slack channel name', () => {
+  const app = new App();
+  const stack = new MyStack(app, 'test');
+
+  const template = Template.fromStack(stack);
+  template.hasResourceProperties('AWS::Chatbot::SlackChannelConfiguration', {
+    ConfigurationName: 'cdk-monitor',
+  });
+});

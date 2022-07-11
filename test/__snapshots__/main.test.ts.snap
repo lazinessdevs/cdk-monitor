@@ -10,6 +10,42 @@ Object {
     },
   },
   "Resources": Object {
+    "CDKMonitorChannel74883F33": Object {
+      "Properties": Object {
+        "ConfigurationName": "cdk-monitor",
+        "IamRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "CDKMonitorChannelConfigurationRole1CD5941A",
+            "Arn",
+          ],
+        },
+        "SlackChannelId": "C03NVUV1F3P",
+        "SlackWorkspaceId": "T03L7TWLH09",
+        "SnsTopicArns": Array [
+          Object {
+            "Ref": "CDKMonitorTopic152F2EBD",
+          },
+        ],
+      },
+      "Type": "AWS::Chatbot::SlackChannelConfiguration",
+    },
+    "CDKMonitorChannelConfigurationRole1CD5941A": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "chatbot.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
     "CDKMonitorTopic152F2EBD": Object {
       "Properties": Object {
         "TopicName": "cdk-monitor",
